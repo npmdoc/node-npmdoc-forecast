@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"forecast",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "forecast",
+    "description": "api documentation for [forecast (v0.3.2)](https://ghub.io/forecast) [![npm package](https://img.shields.io/npm/v/npmdoc-forecast.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-forecast) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-forecast.svg)](https://travis-ci.org/npmdoc/node-npmdoc-forecast)",
     "devDependencies": {
-        "forecast": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "forecast": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-forecast",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-forecast",
+    "keywords": [
+        "documentation",
+        "forecast"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_forecast.js",
+    "name": "npmdoc-forecast",
+    "nameAlias": "npmdoc_forecast",
+    "nameOriginal": "npmdoc-forecast",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-forecast"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
