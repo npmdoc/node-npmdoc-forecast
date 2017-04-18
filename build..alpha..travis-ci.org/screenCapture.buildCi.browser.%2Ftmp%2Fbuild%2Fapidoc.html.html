@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.forecast.forecast">
+            function <span class="apidocSignatureSpan"></span>forecast
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.forecast.darksky">
             function <span class="apidocSignatureSpan">forecast.</span>darksky
             <span class="apidocSignatureSpan">(options)</span>
@@ -110,6 +119,37 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forecast" id="apidoc.module.forecast">module forecast</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forecast.forecast" id="apidoc.element.forecast.forecast">
+        function <span class="apidocSignatureSpan"></span>forecast
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forecast = function (options) {
+  this.providers = providers;
+  this.cache = {};
+
+  this.options = assign({}, {
+    service: 'darksky',
+    units: 'celcius',
+    cache: true,
+    ttl: {
+      minutes: 30
+    }
+  }, options || {});
+
+  if (this.options.key === 'your-api-key') {
+    this.options.key = null;
+  }
+
+  this.options.ttl = moment.duration(this.options.ttl);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
